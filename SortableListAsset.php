@@ -9,29 +9,29 @@ use yii\web\AssetBundle;
  *
  * @since 1.0
  */
-class SortableTreeAsset extends AssetBundle
+class SortableListAsset extends AssetBundle
 {
     /**
      * @var string
      */
-    public $sourcePath = __DIR__ ;
+    public $sourcePath = "@bower" ;
     /**
      * @var array
      */
     public $css = [
-        'assets/css/sortable-tree.css'
+
     ];
     /**
      * @var array
      */
     public $js = [
+        'jquery-sortable-lists/jquery-sortable-lists.js',
     ];
     /**
      * @var array
      */
     public $depends = [
         'yii\web\YiiAsset',
-        'xiongchuan\tree\SortableListAsset'
     ];
 
 }
