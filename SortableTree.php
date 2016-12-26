@@ -56,19 +56,20 @@ class SortableTree extends Widget
             Html::addCssClass($this->options, 'sortable-tree');
             echo Html::beginTag('div', ['class'=>'sortable-tree-box']);
             echo Html::beginTag('ul', $this->options);
-            echo $this->renderItems($this->items);
+            echo $this->renderItems($this->items,1);
             echo Html::endTag('ul');
             echo Html::endTag('div');
         }
     }
 
-    protected function renderItems($_items)
+    protected function renderItems($_items,$level)
     {
         if(empty($_items) || !is_array($_items))return '';
         $items = '';
         foreach ($_items as $item) {
             //获取item options
-            $options = ArrayHelper::getValue($item, 'options', []);
+            $options = ArrayHelper::getValue($item, 'options');
+            $options['data-level'] = $level;
             $options = ArrayHelper::merge($this->itemOptions, $options);
             if (ArrayHelper::getValue($item, 'disabled', false)) {
                 Html::addCssClass($options, 'disabled');
@@ -78,7 +79,7 @@ class SortableTree extends Widget
             //检查有没有子元素
             if(ArrayHelper::keyExists('items',$item)){
                 $content .= Html::beginTag('ul');
-                $content .= $this->renderItems(ArrayHelper::getValue($item,'items',[]));
+                $content .= $this->renderItems(ArrayHelper::getValue($item,'items',[]),$level+1);
                 $content .= Html::endTag('ul');
             }
             $items  .= Html::tag('li', $content, $options);

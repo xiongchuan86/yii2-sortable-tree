@@ -7,7 +7,7 @@
 
 .sortable-tree-box ul, #sTree2, #sTreePlus { padding:0; background-color:#3c8dbc; }
 
-#sTree2 li, #sTreePlus li {
+.sortable-tree-box li,#sTree2 li, #sTreePlus li {
     padding-left:40px;
     margin:5px; border:1px solid #fff;
     background-color:#fff;
@@ -26,7 +26,7 @@ ul#sortableListsBase li {
 
 .sortable-tree-box li, .sortable-tree-box ul, .sortable-tree-box div {  }
 ul#sortableListsBase li, ul#sortableListsBase ul, ul#sortableListsBase div {}
-#sTree2, #sTreePlus { margin:10px auto; }
+.sortable-tree-box, #sTree2, #sTreePlus { margin:10px auto; }
 
 .sortableListsOpener{
     color:#3c8dbc;
